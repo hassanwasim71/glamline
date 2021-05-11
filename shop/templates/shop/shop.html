@@ -1,0 +1,133 @@
+{% extends 'shop/basic.html'%}
+{% block title%}{%endblock%}
+{%block css%}
+<style>
+    .popular-img img{
+    height:600px;
+    }
+</style>
+{%endblock%}
+{%block body%}
+{% load static%}
+    <main>
+        <!-- breadcrumb Start-->
+        <div class="page-notification">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- listing Area Start -->
+        <div class="category-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-8 col-md-10">
+                        <div class="section-tittle mb-50">
+                            <h2>Shop with us</h2>
+                            <p>Browse from 230 latest items</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--? Left content -->
+                    <div class="col-xl-3 col-lg-3 col-md-4 ">
+                        <!-- Job Category Listing start -->
+                        <div class="category-listing mb-50">
+                            <!-- single one -->
+                            <div class="single-listing">
+                                <!-- Select City items start -->
+<form  action="." method="post">{% csrf_token %}
+                                <div class="select-job-items2">
+
+                                    <select  id="category" name="category">
+                                        <option  value="Category">Category</option>
+                                        <option value="shirt">Shirt</option>
+                                        <option value="suit">Suit</option>
+                                        <option value="frok">Frok</option>
+                                        <option value="maxi">Maxi</option>
+                                        <option value="gharara">Gharara</option>
+                                    </select>
+                                </div>
+                                <!--  Select City items End-->
+                                <!-- Select State items start -->
+
+                                <!-- Select km items start -->
+                                <div class="select-job-items2">
+                                    <select id="color" name="color">
+                                        <option value="Color">Color</option>
+                                        <option value="black">Black</option>
+                                        <option value="brown">Brown</option>
+                                        <option value="blue">Blue</option>
+                                        <option value="red">Red</option>
+                                        <option value="green">Green</option>
+                                    </select>
+                                </div>
+                                <!--  Select km items End-->
+                                <!-- Select km items start -->
+                                <div class="select-job-items2">
+                                    <select id="pricee" name="pricee">
+                                        <option value="priceee">Sort By Price</option>
+                                        <option value="htl">Highest to lowest</option>
+                                        <option value="lth">Lowest to highest</option>
+
+                                    </select>
+
+                                </div>
+<button type="submit" class="btn">Filter</button>
+</form>
+                                <!--  Select km items End-->
+                            </div>
+                        </div>
+                        <!-- Job Category Listing End -->
+                    </div>
+                    <!--?  Right content -->
+                    <div class="col-xl-9 col-lg-9 col-md-8 ">
+                        <!--? New Arrival Start -->
+                        <div class="new-arrival new-arrival2">
+                            <div class="row">
+{%for i in allprods%}
+
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                    <a href="/proddet/{{i.id}}">
+                                    <div class="single-new-arrival mb-50 text-center">
+                                        <div class="popular-img">
+                                            <img src="/media/{{i.images}}" alt="">
+                                            <div class="favorit-items">
+                                                <!-- <span class="flaticon-heart"></span> -->
+                                                <img src="{%static 'shop/assets/img/gallery/card1.png'%}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="popular-caption">
+                                         <h3>{{i.product_name}}</h3>
+
+                                        <span>PKR {{i.price}}</span>
+                                    </div>
+                                </div>
+                                    </a>
+                            </div>
+
+                                {%endfor%}
+
+</div>
+<!-- Button -->
+
+</div>
+
+<!--? New Arrival End -->
+</div>
+</div>
+</div>
+</div>
+
+
+
+</main>
+{%endblock%}

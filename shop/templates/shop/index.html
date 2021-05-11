@@ -1,0 +1,155 @@
+{% extends 'shop/basic.html'%}
+{% block title%}{%endblock%}
+{%block css%}
+<style>
+.popular-img img{
+height:600px;
+}
+</style>
+{%endblock%}
+{%block body%}
+{% load static%}
+
+                <div class="slider-active dot-style">
+                    <!-- Single -->
+                    <div class="single-slider slider-bg1 hero-overly slider-height d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-8 col-lg-9">
+                                    <!-- Hero Caption -->
+                                    <div class="hero__caption">
+                                        <h1>fashion<br>changing<br>always</h1>
+                                        <a href="/prodpage/" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <div class="single-slider slider-bg2 hero-overly slider-height d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-8 col-lg-9">
+                                    <!-- Hero Caption -->
+                                    <div class="hero__caption">
+                                        <h1>fashion<br>changing<br>always</h1>
+                                        <a href="/prodpage/" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <div class="single-slider slider-bg3 hero-overly slider-height d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-8 col-lg-9">
+                                    <!-- Hero Caption -->
+                                    <div class="hero__caption">
+                                        <h1>fashion<br>changing<br>always</h1>
+                                        <a href="/prodpage/" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Hero -->
+        <!--? Popular Items Start -->
+
+        <div class="popular-items pt-50">
+            <div class="container-fluid">
+                <div class="row">
+                    {%for i in allprods%}
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                            <div class="popular-img">
+
+                                <img src="/media/{{i.images}}" alt="">
+                                <div class="img-cap">
+                                    <span>{{i.product_name}}</span>
+                                </div>
+                                <div class="favorit-items">
+                                 <a href="/proddet/{{i.id}}" class="btn">Shop Now</a>
+                             </div>
+                         </div>
+
+                     </div>
+
+                 </div>
+
+{%endfor%}
+
+
+ </div>
+
+</div>
+
+</div>
+<!-- Popular Items End -->
+<!--? New Arrival Start -->
+<div class="new-arrival">
+    <div class="container">
+        <!-- Section tittle -->
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-10">
+                <div class="section-tittle mb-60 text-center wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
+                    <h2>new<br>arrival</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+{% for i in prods|slice:"0:8"%}
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+<a href="/proddet/{{i.id}}">
+                <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                    <div class="popular-img">
+                        <img src="/media/{{i.images}}" alt="">
+                        <div class="favorit-items">
+                            <!-- <span class="flaticon-heart"></span> -->
+                            <img src="{%static 'shop/assets/img/gallery/card1.png'%}" alt="">
+                        </div>
+                    </div>
+                    <div class="popular-caption">
+                        <h3>{{i.product_name}}</h3>
+                       <span>PKR {{i.price}}</span>
+                        <h3 style="text-decoration: line-through; color:red; margin-bottom:10px;">PKR {{i.price1}}</h3>
+                    </div>
+                </div>
+
+</a>
+            </div>
+
+
+{%endfor%}
+
+</div>
+<!-- Button -->
+<div class="row justify-content-center">
+    <div class="room-btn">
+        <a href="/prodpage" class="border-btn">Browse More</a>
+    </div>
+</div>
+</div>
+</div>
+<!--? New Arrival End -->
+<!--? collection -->
+<section class="collection section-bg2 section-padding30 section-over1 ml-15 mr-15" data-background="{%static 'shop/assets/img/gallery/section_bg01.png'%}">
+    <div class="container-fluid"></div>
+    <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9">
+            <div class="single-question text-center">
+                <h2 class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">collection houses our first-ever</h2>
+                <a href="/about" class="btn class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".4s">About Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Popular Locations End -->
+{%endblock%}
